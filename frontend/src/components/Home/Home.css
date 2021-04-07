@@ -1,0 +1,90 @@
+.HomeContainer {
+  /* padding: 0% 1%; */
+  /* width: 98%; */
+}
+.SaleImg {
+  width: 100%;
+  height: 40vh;
+  max-height: 700px;
+  min-height: 400px;
+  background: url("https://cdn.shopify.com/s/files/1/0065/4242/t/26/assets/panel_1.jpg?v=9958621454192581804");
+  background-size: cover;
+  position: relative;
+  margin: 20px auto 40px auto;
+}
+.SaleText {
+  position: absolute;
+  width: 450px;
+  height: 100%;
+  display: flex;
+  right: 50px;
+  align-items: flex-start;
+}
+
+.SaleText h2 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.shoppingCategory {
+  /* width: 98%; */
+  border-top: 1px solid #555;
+  padding-top: 30px;
+  display: flex;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #555;
+  margin-bottom: 20px;
+}
+
+.categoryContainer {
+  /* width: 50%; */
+  height: 30%;
+  display: flex;
+}
+.categoryContainer img {
+  width: 300px;
+  display: block;
+}
+.categoryParts {
+  width: 50%;
+  padding-left: 3%;
+  padding-right: 2%;
+}
+.categoryParts h3 {
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.categoryParts p {
+  font-size: 1rem;
+}
+
+.categoryPartsLink {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #c61b21;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-top: 25px;
+  height: 0;
+  padding-bottom: 46.25%;
+  margin: auto;
+  /* margin-bottom: 2px; */
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 99%;
+  height: 100%;
+  /* padding-bottom: 10%; */
+  /* margin-bottom: 10px; */
+}
+.footer_topSpace {
+  margin: 15px 0px;
+  border-top: 1px solid #555;
+}

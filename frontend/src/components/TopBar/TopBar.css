@@ -1,0 +1,23 @@
+.TopBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 1%;
+  border-bottom: 1px solid #ededed;
+  font-size: 1rem;
+}
+.textColor:hover {
+  border-bottom: 1px solid #ededede1;
+}
+.textColor {
+  color: #ededed;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.cart_Container img {
+  width: 15px;
+  height: auto;
+  display: inline-block;
+  margin: 0 5px -2px 0;
+}

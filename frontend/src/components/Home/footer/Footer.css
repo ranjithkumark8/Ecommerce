@@ -1,0 +1,22 @@
+.footer {
+  /* margin-top: 15px; */
+  width: 80%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+.footer_subDivisions ul li {
+  list-style: none;
+  margin: 8px 0px;
+}
+
+.footer_subDivisions ul li:hover {
+  color: #c61b21;
+  cursor: pointer;
+}
+
+.footer_social,
+.footer_instructions {
+  border-left: 2px solid #c61b21;
+}

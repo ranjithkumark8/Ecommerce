@@ -1,0 +1,22 @@
+.navBarContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5% 1%;
+  align-items: center;
+  border-bottom: 3px solid #555;
+  font-size: 1rem;
+}
+
+.products ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+.products ul li {
+  /* padding: 0 2%; */
+  margin: 0 10px;
+}
+.whiteText {
+  color: #ededed;
+  text-decoration: none;
+}

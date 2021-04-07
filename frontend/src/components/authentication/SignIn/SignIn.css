@@ -1,0 +1,56 @@
+.formWrapper {
+  margin: auto;
+  width: 25%;
+}
+
+.baseFormHeading {
+  font-size: 1.2rem;
+}
+
+.formFieldLabel {
+  display: block;
+  margin: 5px 0 0 0;
+  width: 100%;
+}
+
+.formFieldWrapInner input {
+  padding: 10px;
+  display: block;
+  margin: 5px 0 0 0;
+  width: 93%;
+}
+.formFieldWrapInner input:focus {
+  outline: none;
+  border: 1px solid #b73535;
+}
+.formFieldWrapInner span {
+  font-size: 12px;
+}
+.errorMessage {
+  color: red;
+  display: block;
+}
+
+.submitBtnContainer {
+  width: 100%;
+  display: block;
+  margin: 12px 0 0 0;
+}
+
+.submitBtnContainer button {
+  width: 100%;
+  padding: 10px;
+  background-color: #b73535;
+  border: 1px solid #b73535;
+  color: white;
+  /* font-size: 11px; */
+}
+
+.register_header {
+  margin: 5px 0 0 0;
+  /* font-size: 18px; */
+}
+.register_header a {
+  text-decoration: none;
+  color: white;
+}
