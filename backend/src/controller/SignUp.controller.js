@@ -6,7 +6,7 @@ require("dotenv").config();
 const { body, validationResult } = require("express-validator");
 
 const User = require("../model/user.model");
-
+// console.log(process.env.JWT_SECRET_KEY);
 const newToken = (user) => {
   return jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY);
 };
@@ -31,6 +31,12 @@ router.post(
     // Creating a token with reference to user id and sending it.
     try {
       const user = await User.create(req.body);
+      if (!user) {
+        return res
+          .status(201)
+          .json({ status: "Failed", errors: "Already Registered" });
+      }
+      console.log(user);
       const token = newToken(user);
       return res.status(201).json({ status: "Success", token });
     } catch (e) {
