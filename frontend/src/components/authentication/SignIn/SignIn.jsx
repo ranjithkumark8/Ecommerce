@@ -1,9 +1,17 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import "./SignIn.css"
+import { useDispatch, useSelector } from 'react-redux';
+import { signInDetails } from '../../../Redux/AuthRedux/action';
 export const SignIn = () => {
+    const dispatch = useDispatch()
+    const history = useHistory()
+    const token = useSelector((state) => state.authReducer.token)
+    if (token) {
+        history.push("/")
+    }
     const {
         values,
         handleSubmit,
@@ -28,7 +36,8 @@ export const SignIn = () => {
         }),
         onSubmit(values) {
             // We added a `username` value for the user which is everything before @ in their email address.
-            alert(JSON.stringify(values))
+            // alert(JSON.stringify(values))
+            dispatch(signInDetails(values))
             setValues({
                 email: "",
                 password: ""

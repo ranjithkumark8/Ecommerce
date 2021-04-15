@@ -52,6 +52,7 @@ router.post(
       return res.status(500).json({ status: "failed", message: error });
     }
     const token = await newToken(user);
+    // console.log(token);
     return res.status(201).json({ status: "success", token: token });
   }
 );

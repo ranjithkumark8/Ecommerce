@@ -8,6 +8,7 @@
 }
 .textColor:hover {
   border-bottom: 1px solid #ededede1;
+  cursor: pointer;
 }
 .textColor {
   color: #ededed;

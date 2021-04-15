@@ -6,9 +6,15 @@ app.use(express.json());
 app.use(cors());
 const signUpController = require("./controller/SignUp.controller");
 const signInController = require("./controller/SignIn.controller");
+const categoryController = require("./controller/Category.controller");
+const tagsController = require("./controller/Tags.controller");
+const productController = require("./controller/Product.controller");
 
 app.use("/signup", signUpController);
 app.use("/signin", signInController);
+app.use("/category", categoryController);
+app.use("/tag", tagsController);
+app.use("/products", productController);
 
 const start = async () => {
   await connect();
