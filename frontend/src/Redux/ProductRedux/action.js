@@ -67,7 +67,7 @@ export const productData = (id) => (dispatch) => {
     .then((res) => {
       // console.log(res.data);
       dispatch(productSuccess(res.data)).then((res) => {
-        return { respose: true };
+        return { response: true };
       });
     })
     .catch((err) => dispatch(productFailure(err)));
