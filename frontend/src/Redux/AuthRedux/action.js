@@ -65,7 +65,7 @@ export const postSignUpDetails = (payload) => (dispatch) => {
       console.log(res.data);
       return dispatch(postSignUpDetailsSuccess(res.data));
     })
-    .catch((error) => dispatch(POST_SIGNUP_DETAILS_FAILURE(error)));
+    .catch((error) => dispatch(postSignUpDetailsFailure(error)));
 };
 
 // ranjithkumar@gmail.com
@@ -78,5 +78,5 @@ export const signInDetails = (payload) => (dispatch) => {
       console.log(res.data);
       return dispatch(signInDetailsSuccess(res.data));
     })
-    .catch((error) => dispatch(SIGNIN_DETAILS_FAILURE(error)));
+    .catch((error) => dispatch(signInDetailsFailure(error)));
 };

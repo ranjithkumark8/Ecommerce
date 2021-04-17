@@ -1,0 +1,60 @@
+.singleContainer {
+  display: flex;
+  margin: 50px auto;
+  width: 80%;
+}
+.productImage img {
+  width: 550px;
+}
+
+.singleProductInfo {
+  width: 40%;
+  margin: 0 10%;
+}
+
+.singleProductInfo h1 {
+  font-weight: 500;
+  font-size: 22px;
+  margin-top: 0;
+}
+
+.singleProdDesc {
+  font-size: 16px;
+  color: antiquewhite;
+  /* opacity: 0.6; */
+}
+.singleProdSize {
+  /* border: 1px solid rebeccapurple; */
+}
+
+.singleProdSize p {
+  font-size: 16px;
+  margin: 5% 0 0;
+  padding: 0;
+}
+.singleProdSize select {
+  margin: 5px 0;
+  /* background: url(https://cdn.shopify.com/s/files/1/1132/3440/t/4/assets/ico-select.svg?v=11126463550887481405); */
+  /* appearance: none; */
+  background-position: 10px right center;
+  background-repeat: no-repeat;
+  padding-right: 28px;
+  line-height: 1.42;
+  text-indent: 0.01px;
+  background-color: black;
+  width: 30%;
+  color: snow;
+  font-size: 16px;
+}
+
+.singleProdQty p {
+  font-size: 16px;
+  margin: 5% 0 0;
+  padding: 0;
+}
+.singleProdQty {
+  border: 1px solid white;
+}
+.singleProdQty button {
+  /* background */
+}

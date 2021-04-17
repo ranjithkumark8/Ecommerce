@@ -2,11 +2,11 @@ import React from 'react'
 import { Switch } from "react-router-dom"
 import { PrivateRouter } from "./PrivateRouter"
 import { Home } from "../components/Home/Home"
-import { MensPage } from "../components/MensPage/MensPage"
-import { WomensPage } from "../components/WomensPage/WomensPage"
+import { ProductPage } from "../components/ProductPage/ProductPage"
 import { SignIn } from "../components/authentication/SignIn/SignIn"
 import { SignUp } from "../components/authentication/SignUp/SignUp"
 import { Footer } from '../components/Home/footer/Footer'
+import { SingleProductPage } from '../components/SingleProductPage/SingleProductPage'
 export const Router = () => {
     return (
         <div>
@@ -15,13 +15,16 @@ export const Router = () => {
                     <Home />
                 </PrivateRouter>
                 <PrivateRouter exact path="/collections/Mens">
-                    <MensPage />
+                    <ProductPage />
                 </PrivateRouter>
                 <PrivateRouter exact path="/collections/Womens">
-                    <WomensPage />
+                    <ProductPage />
                 </PrivateRouter>
                 <PrivateRouter exact path="/collections/Sale">
-                    <MensPage />
+                    <ProductPage />
+                </PrivateRouter>
+                <PrivateRouter exact path="/collections/:id">
+                    <SingleProductPage />
                 </PrivateRouter>
                 <PrivateRouter exact path="/SignIn">
                     <SignIn />
