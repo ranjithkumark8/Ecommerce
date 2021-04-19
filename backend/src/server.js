@@ -9,12 +9,14 @@ const signInController = require("./controller/SignIn.controller");
 const categoryController = require("./controller/Category.controller");
 const tagsController = require("./controller/Tags.controller");
 const productController = require("./controller/Product.controller");
+const orderController = require("./controller/Order.controller");
 
 app.use("/signup", signUpController);
 app.use("/signin", signInController);
 app.use("/category", categoryController);
 app.use("/tag", tagsController);
 app.use("/products", productController);
+app.use("/order", orderController);
 
 const start = async () => {
   await connect();
