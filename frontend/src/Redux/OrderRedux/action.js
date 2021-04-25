@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  DELETE_USERORDER_FAILURE,
+  DELETE_USERORDER_REQUEST,
+  DELETE_USERORDER_SUCCESS,
   GET_USERORDER_FAILURE,
   GET_USERORDER_REQUEST,
   GET_USERORDER_SUCCESS,
@@ -49,6 +52,24 @@ export const getUserOrderFailure = (error) => {
   };
 };
 
+export const deleteOrderRequest = () => {
+  return {
+    type: DELETE_USERORDER_REQUEST,
+  };
+};
+
+export const deleteOrderSuccess = () => {
+  return {
+    type: DELETE_USERORDER_SUCCESS,
+  };
+};
+
+export const deleteOrderFailure = () => {
+  return {
+    type: DELETE_USERORDER_FAILURE,
+  };
+};
+
 export const postOrders = (body) => (dispatch) => {
   dispatch(postOrderRequest());
   let token = body.token;
@@ -59,6 +80,7 @@ export const postOrders = (body) => (dispatch) => {
     .then((res) => {
       console.log(res);
       dispatch(postOrderSuccess(res.data));
+      dispatch(getUserOrders(token));
     })
     .catch((err) => dispatch(postOrderFailure(err)));
 };
@@ -76,4 +98,16 @@ export const getUserOrders = (token) => (dispatch) => {
       dispatch(getUserOrderSuccess(res.data));
     })
     .catch((err) => dispatch(getUserOrderFailure(err)));
+};
+
+export const deleteOrder = (token, id) => (dispatch) => {
+  dispatch(deleteOrderRequest());
+  return axios
+    .delete(`http://localhost:2345/order/${id}`)
+    .then((res) => {
+      // console.log(res);
+      dispatch(deleteOrderSuccess());
+      dispatch(getUserOrders(token));
+    })
+    .catch((err) => dispatch(deleteOrderFailure()));
 };

@@ -1,4 +1,7 @@
 import {
+  DELETE_USERORDER_FAILURE,
+  DELETE_USERORDER_REQUEST,
+  DELETE_USERORDER_SUCCESS,
   GET_USERORDER_FAILURE,
   GET_USERORDER_REQUEST,
   GET_USERORDER_SUCCESS,
@@ -49,13 +52,33 @@ export const orderReducer = (state = initialData, { type, payload }) => {
         ...state,
         isLoading: false,
         ordersData: payload.data,
-        orderedProductId: payload.data.map((item) => item.productId),
+        orderedProductId: payload.data.map((item) => item.productId._id),
       };
     }
     case GET_USERORDER_FAILURE: {
       return {
         ...state,
         isLoading: false,
+        isError: true,
+      };
+    }
+    case DELETE_USERORDER_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    }
+    case DELETE_USERORDER_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+      };
+    }
+    case DELETE_USERORDER_FAILURE: {
+      return {
+        ...state,
         isError: true,
       };
     }

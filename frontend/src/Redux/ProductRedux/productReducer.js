@@ -1,4 +1,7 @@
 import {
+  category_DATA_FAILURE,
+  category_DATA_REQUEST,
+  category_DATA_SUCCESS,
   MEN_DATA_FAILURE,
   MEN_DATA_REQUEST,
   MEN_DATA_SUCCESS,
@@ -12,6 +15,7 @@ const initialData = {
   isError: false,
   mensData: [],
   productData: [],
+  categoryData: [],
 };
 
 export const productReducer = (state = initialData, { type, payload }) => {
@@ -50,6 +54,27 @@ export const productReducer = (state = initialData, { type, payload }) => {
     case PRODUCT_FAILURE: {
       return {
         ...state,
+        isError: true,
+      };
+    }
+    case category_DATA_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case category_DATA_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        categoryData: payload,
+        isError: false,
+      };
+    }
+    case category_DATA_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
         isError: true,
       };
     }

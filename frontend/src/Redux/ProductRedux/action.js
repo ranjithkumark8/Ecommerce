@@ -1,5 +1,8 @@
 import axios from "axios";
 import {
+  category_DATA_FAILURE,
+  category_DATA_REQUEST,
+  category_DATA_SUCCESS,
   MEN_DATA_FAILURE,
   MEN_DATA_REQUEST,
   MEN_DATA_SUCCESS,
@@ -48,6 +51,25 @@ export const productFailure = (error) => {
   };
 };
 
+export const categoryDataRequest = () => {
+  return {
+    type: category_DATA_REQUEST,
+  };
+};
+
+export const categoryDataSuccess = (payload) => {
+  return {
+    type: category_DATA_SUCCESS,
+    payload,
+  };
+};
+
+export const categoryDataFailure = (error) => {
+  return {
+    type: category_DATA_FAILURE,
+    payload: error,
+  };
+};
 export const MenData = (category) => (dispatch) => {
   dispatch(MensDataRequest());
   return axios
@@ -71,4 +93,16 @@ export const productData = (id) => (dispatch) => {
       });
     })
     .catch((err) => dispatch(productFailure(err)));
+};
+
+export const categoryData = () => (dispatch) => {
+  // console.log("sjfd");
+  dispatch(categoryDataRequest());
+  return axios
+    .get("http://localhost:2345/tag")
+    .then((res) => {
+      // console.log(res.data.data);
+      dispatch(categoryDataSuccess(res.data.data));
+    })
+    .catch((err) => categoryDataFailure(err));
 };

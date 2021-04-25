@@ -36,25 +36,54 @@
   margin: 5px 0;
   /* background: url(https://cdn.shopify.com/s/files/1/1132/3440/t/4/assets/ico-select.svg?v=11126463550887481405); */
   /* appearance: none; */
-  background-position: 10px right center;
-  background-repeat: no-repeat;
+  /* background-position: 10px right center; */
+  /* background-repeat: no-repeat; */
   padding-right: 28px;
   line-height: 1.42;
   text-indent: 0.01px;
   background-color: black;
-  width: 30%;
+  width: 20%;
   color: snow;
   font-size: 16px;
+  border: 1px solid #b73535;
 }
 
 .singleProdQty p {
-  font-size: 16px;
-  margin: 5% 0 0;
+  font-size: 18px;
+  margin: 2% 0 0;
   padding: 0;
 }
 .singleProdQty {
-  border: 1px solid white;
+  border: 1px solid #b73535;
+  width: fit-content;
 }
 .singleProdQty button {
-  /* background */
+  background-color: transparent;
+  color: aliceblue;
+  font-size: 18px;
+  border: none;
+  outline: none;
+}
+
+.singleProdQty input {
+  background-color: transparent;
+  color: aliceblue;
+  width: 30px;
+  text-align: center;
+}
+
+.cartButton {
+  background-color: #b73535;
+  padding: 10px;
+  width: 100%;
+  margin-top: 10%;
+  color: white;
+  font-weight: 600;
+  border: 1px solid #b73535;
+}
+
+.cartAddedButton {
+  background-color: gray;
+  color: black;
+  border: 0;
 }

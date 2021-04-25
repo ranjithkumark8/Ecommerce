@@ -1,0 +1,66 @@
+.container {
+  color: white;
+}
+
+.container > h1 {
+  text-align: center;
+  /* border-bottom: 1px solid #b73535; */
+  /* display: inline-block; */
+  margin: auto;
+  color: #b73535;
+}
+.ordersContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid whitesmoke;
+  padding: 10px;
+  width: 800px;
+  margin: auto;
+}
+.ordersContainerImage img {
+  height: 150px;
+}
+.ordersContainerInfo {
+  width: 300px;
+  /* border: 1px solid cadetblue; */
+}
+
+.ordersContainerInfo h1 {
+  /* padding: 0; */
+  margin: 0;
+  font-size: 18px;
+}
+
+.ordersRemoveBtn {
+  border: 0;
+  padding: 10px 20px;
+  color: white;
+  font-size: 11px;
+  cursor: pointer;
+  background-color: #b73535;
+  font-weight: 600;
+}
+
+.subTotalInfo {
+  width: 800px;
+  display: flex;
+  padding: 10px;
+  margin: auto;
+  justify-content: space-between;
+  border-bottom: 1px solid whitesmoke;
+  margin-bottom: 30px;
+}
+
+.subTotalInfo h1 {
+  font-size: 18px;
+}
+
+.emptyCartContainer {
+  margin: 50px auto;
+  text-align: center;
+}
+
+.emptyCartContainer a {
+  color: #b73535;
+}

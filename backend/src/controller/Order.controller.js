@@ -23,10 +23,18 @@ router.get("/userOrders", protect, async (req, res) => {
   console.log(user._id);
   const data = await OrderModel.find({ userId: user._id })
     .populate("userId")
-    // .populate("productId")
+    .populate("productId")
     .lean()
     .exec();
   console.log(data);
   res.status(201).json({ data });
+});
+
+router.delete("/:id", async (req, res) => {
+  // const user = await req.user
+  const id = req.params.id;
+  console.log(id);
+  const data = await OrderModel.findByIdAndDelete(id);
+  res.status(204).end();
 });
 module.exports = router;
