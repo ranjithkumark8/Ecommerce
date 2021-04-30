@@ -47,7 +47,7 @@ export const orderReducer = (state = initialData, { type, payload }) => {
       };
     }
     case GET_USERORDER_SUCCESS: {
-      console.log(payload.data);
+      // console.log(payload.data);
       return {
         ...state,
         isLoading: false,

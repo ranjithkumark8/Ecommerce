@@ -74,11 +74,11 @@ export const postOrders = (body) => (dispatch) => {
   dispatch(postOrderRequest());
   let token = body.token;
   return axios
-    .post("http://localhost:2345/order", body, {
+    .post("https://ecart763.herokuapp.com/order", body, {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       dispatch(postOrderSuccess(res.data));
       dispatch(getUserOrders(token));
     })
@@ -90,11 +90,11 @@ export const getUserOrders = (token) => (dispatch) => {
   if (!token) return null;
   dispatch(getUserOrderRequest());
   return axios
-    .get("http://localhost:2345/order/userOrders", {
+    .get("https://ecart763.herokuapp.com/order/userOrders", {
       headers: { Authorization: `Bearer ${token}` },
     })
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       dispatch(getUserOrderSuccess(res.data));
     })
     .catch((err) => dispatch(getUserOrderFailure(err)));
@@ -103,7 +103,7 @@ export const getUserOrders = (token) => (dispatch) => {
 export const deleteOrder = (token, id) => (dispatch) => {
   dispatch(deleteOrderRequest());
   return axios
-    .delete(`http://localhost:2345/order/${id}`)
+    .delete(`https://ecart763.herokuapp.com/order/${id}`)
     .then((res) => {
       // console.log(res);
       dispatch(deleteOrderSuccess());

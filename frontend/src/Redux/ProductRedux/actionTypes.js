@@ -9,3 +9,7 @@ export const PRODUCT_FAILURE = "PRODUCT_FAILURE";
 export const category_DATA_REQUEST = "category_DATA_REQUEST";
 export const category_DATA_SUCCESS = "category_DATA_SUCCESS";
 export const category_DATA_FAILURE = "category_DATA_FAILURE";
+
+export const FILTER_DATA_REQUEST = "FILTER_DATA_REQUEST";
+export const FILTER_DATA_SUCCESS = "FILTER_DATA_SUCCESS";
+export const FILTER_DATA_FAILURE = "FILTER_DATA_FAILURE";

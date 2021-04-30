@@ -5,7 +5,7 @@ import { Home } from "../components/Home/Home"
 import { ProductPage } from "../components/ProductPage/ProductPage"
 import { SignIn } from "../components/authentication/SignIn/SignIn"
 import { SignUp } from "../components/authentication/SignUp/SignUp"
-import { Footer } from '../components/Home/footer/Footer'
+// import { Footer } from '../components/Home/footer/Footer'
 import { SingleProductPage } from '../components/SingleProductPage/SingleProductPage'
 import { Cart } from '../components/Cart/Cart'
 export const Router = () => {

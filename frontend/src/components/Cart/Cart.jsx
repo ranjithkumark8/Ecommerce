@@ -6,8 +6,8 @@ import "./Cart.css"
 export const Cart = () => {
     const ordersData = useSelector((state) => state.orderReducer.ordersData)
     const token = useSelector((state) => state.authReducer.token)
-    console.log(ordersData, "orders data")
-    console.log(token, "token cart")
+    //console.log(ordersData, "orders data")
+    // console.log(token, "token cart")
     const dispatch = useDispatch()
     const handleRemoveOrder = (id) => {
         // console.log(id)

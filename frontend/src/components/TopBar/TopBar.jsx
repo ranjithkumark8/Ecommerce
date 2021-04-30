@@ -9,13 +9,13 @@ export const TopBar = () => {
     const isLoggedIn = useSelector((state) => state.authReducer.isLoggedIn)
     const token = useSelector((state) => state.authReducer.token)
     let ordersData = useSelector((state) => state.orderReducer.ordersData)
-    console.log(ordersData, "hi")
+    // console.log(ordersData, "hi")
     const dispatch = useDispatch()
     const handleLogout = () => {
         dispatch(Logout())
     }
     React.useEffect(() => {
-        console.log(token)
+        // console.log(token)
         if (token) {
             dispatch(getUserOrders(token))
         }

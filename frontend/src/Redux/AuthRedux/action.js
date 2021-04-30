@@ -60,9 +60,9 @@ export const Logout = () => {
 export const postSignUpDetails = (payload) => (dispatch) => {
   dispatch(postSignUpDetailsRequest());
   return axios
-    .post("http://localhost:2345/signup", payload)
+    .post("https://ecart763.herokuapp.com/signup", payload)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       return dispatch(postSignUpDetailsSuccess(res.data));
     })
     .catch((error) => dispatch(postSignUpDetailsFailure(error)));
@@ -73,9 +73,9 @@ export const postSignUpDetails = (payload) => (dispatch) => {
 export const signInDetails = (payload) => (dispatch) => {
   dispatch(signInDetailsRequest());
   return axios
-    .post("http://localhost:2345/signin", payload)
+    .post("https://ecart763.herokuapp.com/signin", payload)
     .then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       return dispatch(signInDetailsSuccess(res.data));
     })
     .catch((error) => dispatch(signInDetailsFailure(error)));

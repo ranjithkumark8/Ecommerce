@@ -1,5 +1,5 @@
 import React from 'react'
-import axios from "axios"
+// import axios from "axios"
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { productData } from '../../Redux/ProductRedux/action'
@@ -10,7 +10,7 @@ export const SingleProductPage = () => {
     // const [productsData, setProductData] = React.useState({})
     const { id } = useParams()
     const dispatch = useDispatch()
-    let { data } = useSelector((state) => state.productReducer.productData)
+    let data = useSelector((state) => state.productReducer.productData)
 
     React.useEffect(() => {
         dispatch(productData(id))
@@ -21,10 +21,10 @@ export const SingleProductPage = () => {
         setQty(e.target.value)
     }
     let orderedProductId = useSelector((state) => state.orderReducer.orderedProductId)
-    console.log(orderedProductId.indexOf(id))
+    // console.log(orderedProductId.indexOf(id))
 
     const token = useSelector((state) => state.authReducer.token)
-    console.log(token)
+    // console.log(token)
     const handleClick = (parameter) => {
         if (parameter === "minus") {
             if (qty !== 1) {
@@ -64,8 +64,8 @@ export const SingleProductPage = () => {
                     <div className="singleProdDesc">{data.description}</div>
                     <div className="singleProdSize">
                         <p>Select Size</p>
-                        <select name="productSize" id="productSize" onChange={handleSizeChange}>
-                            <option value="S" selected>S</option>
+                        <select defaultValue="S" name="productSize" id="productSize" onChange={handleSizeChange}>
+                            <option value="S">S</option>
                             <option value="M">M</option>
                             <option value="L">L</option>
                         </select>
