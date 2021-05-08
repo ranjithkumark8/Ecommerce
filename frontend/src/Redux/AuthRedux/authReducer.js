@@ -28,14 +28,14 @@ export const authReducer = (state = initialData, { type, payload }) => {
     }
     case POST_SIGNUP_DETAILS_SUCCESS: {
       if (payload.status === "Failed") {
-        console.log("error");
+        // console.log("error");
         return {
           ...state,
           isError: true,
           errorMessage: payload.message,
         };
       } else {
-        console.log("error false");
+        // console.log("error false");
         return {
           ...state,
           isLoading: false,
@@ -60,14 +60,14 @@ export const authReducer = (state = initialData, { type, payload }) => {
     }
     case SIGNIN_DETAILS_SUCCESS: {
       if (payload.status === "Failed") {
-        console.log("error");
+        // console.log("error");
         return {
           ...state,
           isError: true,
           errorMessage: payload.message,
         };
       } else {
-        console.log("error false");
+        // console.log("error false");
         return {
           ...state,
           isLoading: false,

@@ -42,3 +42,23 @@
 .productInfoPrice {
   font-size: 14px;
 }
+
+.filtersContainer {
+  /* margin-top: 50px; */
+  width: 80%;
+  margin: 50px auto;
+  /* border: 1px solid firebrick; */
+  /* margin-left: 100px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filtersContainer h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.filtersContainer > div > span {
+  cursor: pointer;
+}
