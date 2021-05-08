@@ -7,7 +7,7 @@
 * [Packages](#packages)
 * [Setup](#setup)
 * [Features](#features)
-* [Inspiration](#inspiration)
+* [Reference](#Reference)
 * [Contact](#contact)
 
 ## General info
@@ -54,7 +54,7 @@ To-do list:
 - [ ] Payment need to Implement
 - [ ] Error messages at SignIn
 
-## Inspiration
+## Reference
 * Reference website - https://hiutdenim.co.uk/
 
 ## Contact
