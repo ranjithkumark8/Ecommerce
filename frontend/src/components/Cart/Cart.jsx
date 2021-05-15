@@ -6,7 +6,7 @@ import "./Cart.css"
 export const Cart = () => {
     const ordersData = useSelector((state) => state.orderReducer.ordersData)
     const token = useSelector((state) => state.authReducer.token)
-    //console.log(ordersData, "orders data")
+    // console.log(ordersData, "orders data")
     // console.log(token, "token cart")
     const dispatch = useDispatch()
     const handleRemoveOrder = (id) => {
@@ -25,14 +25,17 @@ export const Cart = () => {
                         <div className="ordersContainerInfo">
                             <h1>{product.productId.productName}</h1>
                             <h1>₹ {product.productId.returnSale ? product.productId.discountPrice : product.productId.price}</h1>
+                            <h1> Quantity - {product.quantity}</h1>
                         </div>
-                        <button className="ordersRemoveBtn" onClick={() => handleRemoveOrder(product._id)}>Remove</button>
+                        <div>
+                            <button className="ordersRemoveBtn" onClick={() => handleRemoveOrder(product._id)}>Remove</button>
+                        </div>
                     </div>
                 ))}
                 <div className="subTotalInfo">
                     <h1>Sub Total</h1>
                     <h1>₹ {ordersData.length > 0 ? ordersData.reduce((a, b) => {
-                        return b.productId.returnSale ? a + b.productId.discountPrice : a + b.productId.price
+                        return b.productId.returnSale ? a + b.productId.discountPrice * b.quantity : a + b.productId.price * b.quantity
                     }, 0) : 0}</h1>
                 </div>
             </div>) :

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom"
-import { Logout } from '../../Redux/AuthRedux/action'
+import { logOutReset } from '../../Redux/AuthRedux/action'
 import { getUserOrders } from '../../Redux/OrderRedux/action'
 import "./TopBar.css"
 
@@ -12,7 +12,7 @@ export const TopBar = () => {
     // console.log(ordersData, "hi")
     const dispatch = useDispatch()
     const handleLogout = () => {
-        dispatch(Logout())
+        dispatch(logOutReset())
     }
     React.useEffect(() => {
         // console.log(token)
@@ -38,7 +38,7 @@ export const TopBar = () => {
                     <span>{ordersData.length > 0 ? ordersData.reduce((a, b) => { return a + b.quantity }, 0) : 0} ITEMS </span>
                     |
                     <span> ₹ {ordersData.length > 0 ? ordersData.reduce((a, b) => {
-                        return b.productId.returnSale ? a + b.productId.discountPrice : a + b.productId.price
+                        return b.productId.returnSale ? a + b.productId.discountPrice * b.quantity : a + b.productId.price * b.quantity
                     }, 0) : 0}</span>
                 </Link>
             </div>
