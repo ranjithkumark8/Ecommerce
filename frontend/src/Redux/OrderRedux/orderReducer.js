@@ -52,7 +52,7 @@ export const orderReducer = (state = initialData, { type, payload }) => {
         ...state,
         isLoading: false,
         ordersData: payload.data,
-        orderedProductId: payload.data.map((item) => item.productId._id),
+        orderedProductId: payload.data?.map((item) => item.productId._id),
       };
     }
     case GET_USERORDER_FAILURE: {

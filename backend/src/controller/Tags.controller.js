@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
   const id = req.params.id;
-  console.log(id);
+  // console.log(id);
   const data = await TagsModel.findByIdAndDelete({ _id: id });
   res.status(201).json({ data });
 });

@@ -48,7 +48,7 @@ router.post(
           message: "Your Email or Password is Incorrect",
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return res.status(500).json({ status: "failed", message: error });
     }
     const token = await newToken(user);

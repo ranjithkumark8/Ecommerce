@@ -1,4 +1,5 @@
 import axios from "axios";
+import { getUserOrderSuccess } from "../OrderRedux/action";
 import {
   LOGOUT,
   POST_SIGNUP_DETAILS_FAILURE,
@@ -79,4 +80,10 @@ export const signInDetails = (payload) => (dispatch) => {
       return dispatch(signInDetailsSuccess(res.data));
     })
     .catch((error) => dispatch(signInDetailsFailure(error)));
+};
+
+export const logOutReset = (payload) => (dispatch) => {
+  dispatch(Logout());
+  let data = { data: [] };
+  dispatch(getUserOrderSuccess(data));
 };
