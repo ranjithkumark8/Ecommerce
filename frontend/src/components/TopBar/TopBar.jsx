@@ -39,7 +39,7 @@ export const TopBar = () => {
                     <span>{ordersData.length > 0 ? ordersData.reduce((a, b) => { return a + b.quantity }, 0) : 0} ITEMS </span>
                     |
                     <span> ₹ {ordersData.length > 0 ? ordersData.reduce((a, b) => {
-                        return b.productId.returnSale ? a + b.productId.discountPrice : a + b.productId.price
+                        return b.productId.returnSale ? a + b.productId.discountPrice * b.quantity : a + b.productId.price * b.quantity
                     }, 0) : 0}</span>
                 </Link>
             </div>
