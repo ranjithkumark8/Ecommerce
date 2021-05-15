@@ -51,6 +51,7 @@ You will require .env file to run the application, contact the contributors or c
 * Can add products to the cart and remove them if he/she dislikes them
 
 To-do list:
+- [X] Quanity for products in cart page
 - [ ] Payment need to Implement
 - [ ] Error messages at SignIn
 
