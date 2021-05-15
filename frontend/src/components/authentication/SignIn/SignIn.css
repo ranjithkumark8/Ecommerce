@@ -1,3 +1,8 @@
+.ErrorMessage {
+  text-align: center;
+  color: Red;
+  margin: 10px 0;
+}
 .formWrapper {
   margin: auto;
   width: 25%;

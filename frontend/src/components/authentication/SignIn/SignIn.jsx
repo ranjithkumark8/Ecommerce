@@ -9,6 +9,7 @@ export const SignIn = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const token = useSelector((state) => state.authReducer.token)
+    const isError = useSelector((state) => state.authReducer.isError)
     if (token) {
         history.push("/")
     }
@@ -47,6 +48,7 @@ export const SignIn = () => {
 
     return (
         <>
+            {isError && <div className="ErrorMessage">* Email or password is incorrect</div>}
             <div className="formWrapper">
                 <form className="baseForm" onSubmit={handleSubmit} noValidate>
                     {/* Form Header */}
