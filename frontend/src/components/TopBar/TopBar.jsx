@@ -12,6 +12,7 @@ export const TopBar = () => {
     // console.log(ordersData, "hi")
     const dispatch = useDispatch()
     const handleLogout = () => {
+        // dispatch(Logout())
         dispatch(logOutReset())
     }
     React.useEffect(() => {

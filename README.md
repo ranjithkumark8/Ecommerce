@@ -52,8 +52,9 @@ You will require .env file to run the application, contact the contributors or c
 
 To-do list:
 - [X] Quanity for products in cart page
+- [X] Error messages at SignIn
 - [ ] Payment need to Implement
-- [ ] Error messages at SignIn
+
 
 ## Reference
 * Reference website - https://hiutdenim.co.uk/

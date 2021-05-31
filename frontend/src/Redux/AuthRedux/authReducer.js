@@ -59,11 +59,12 @@ export const authReducer = (state = initialData, { type, payload }) => {
       };
     }
     case SIGNIN_DETAILS_SUCCESS: {
+      // console.log("success message");
       if (payload.status === "Failed") {
         // console.log("error");
         return {
           ...state,
-          isError: true,
+          isError: false,
           errorMessage: payload.message,
         };
       } else {
@@ -73,10 +74,12 @@ export const authReducer = (state = initialData, { type, payload }) => {
           isLoading: false,
           token: payload.token,
           isLoggedIn: true,
+          isError: false,
         };
       }
     }
     case SIGNIN_DETAILS_FAILURE: {
+      console.log("failure message");
       return {
         ...state,
         isError: true,

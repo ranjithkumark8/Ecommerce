@@ -36,11 +36,11 @@ router.post(
           .status(201)
           .json({ status: "Failed", errors: "Already Registered" });
       }
-      console.log(user);
+      // console.log(user);
       const token = newToken(user);
       return res.status(201).json({ status: "Success", token });
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       return res.status(500).json({ status: "Failed", errors: e });
     }
   }

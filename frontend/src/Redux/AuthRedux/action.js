@@ -73,13 +73,17 @@ export const postSignUpDetails = (payload) => (dispatch) => {
 
 export const signInDetails = (payload) => (dispatch) => {
   dispatch(signInDetailsRequest());
+  // console.log("asfj");
   return axios
     .post("https://ecart763.herokuapp.com/signin", payload)
     .then((res) => {
       // console.log(res.data);
       return dispatch(signInDetailsSuccess(res.data));
     })
-    .catch((error) => dispatch(signInDetailsFailure(error)));
+    .catch((error) => {
+      // console.log(error);
+      dispatch(signInDetailsFailure(error));
+    });
 };
 
 export const logOutReset = (payload) => (dispatch) => {

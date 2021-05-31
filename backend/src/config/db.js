@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const connect = () => {
-  return mongoose.connect("mongodb://localhost:27017/TestECommerce", {
+  return mongoose.connect(process.env.BACKEND_DATABASE_KEY, {
     useCreateIndex: true,
     useFindAndModify: false,
     useNewUrlParser: true,

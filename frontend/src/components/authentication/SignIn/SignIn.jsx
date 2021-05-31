@@ -18,6 +18,7 @@ export const SignIn = () => {
     const token = useSelector((state) => state.authReducer.token)
     const isLoading = useSelector((state) => state.authReducer.isLoading)
     // console.log(isLoading)
+    const isError = useSelector((state) => state.authReducer.isError)
     if (token) {
         history.push("/")
     }
@@ -56,6 +57,7 @@ export const SignIn = () => {
 
     return (
         <>
+            {isError && <div className="ErrorMessage">* Email or password is incorrect</div>}
             {isLoading ? <ClipLoader color="#B73535" loading={isLoading} css={override} size={150} /> : (
                 <div className="formWrapper">
                     <form className="baseForm" onSubmit={handleSubmit} noValidate>
