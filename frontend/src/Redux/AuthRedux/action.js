@@ -1,6 +1,9 @@
 import axios from "axios";
 import { getUserOrderSuccess } from "../OrderRedux/action";
 import {
+  GET_USER_DETAILS_FAILURE,
+  GET_USER_DETAILS_REQUEST,
+  GET_USER_DETAILS_SUCCESS,
   LOGOUT,
   POST_SIGNUP_DETAILS_FAILURE,
   POST_SIGNUP_DETAILS_REQUEST,
@@ -52,6 +55,25 @@ export const signInDetailsFailure = (error) => {
   };
 };
 
+export const getUserDetailsRequest = () => {
+  return {
+    type: GET_USER_DETAILS_REQUEST,
+  };
+};
+
+export const getUserDetailsSuccess = (payload) => {
+  return {
+    type: GET_USER_DETAILS_SUCCESS,
+    payload,
+  };
+};
+
+export const getUserDetailsFailure = (err) => {
+  return {
+    type: GET_USER_DETAILS_FAILURE,
+    err,
+  };
+};
 export const Logout = () => {
   return {
     type: LOGOUT,
@@ -90,4 +112,14 @@ export const logOutReset = (payload) => (dispatch) => {
   dispatch(Logout());
   let data = { data: [] };
   dispatch(getUserOrderSuccess(data));
+};
+
+export const getUserDetails = (token) => (dispatch) => {
+  dispatch(getUserDetailsRequest());
+  return axios
+    .get("https://ecart763.herokuapp.com/signin", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((res) => dispatch(getUserDetailsSuccess(res.data.data)))
+    .catch((err) => dispatch(getUserDetailsFailure(err)));
 };

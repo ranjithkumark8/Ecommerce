@@ -23,7 +23,13 @@
 }
 .ordersContainerInfo {
   width: 300px;
-  /* border: 1px solid cadetblue; */
+}
+.orderContainerCheckOut {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* border: 1px solid firebrick; */
 }
 
 .ordersContainerInfo h1 {
@@ -32,14 +38,16 @@
   font-size: 18px;
 }
 
-.ordersRemoveBtn {
+.ordersRemoveBtn,
+.checkOut span button {
   border: 0;
-  padding: 10px 20px;
+  padding: 10px;
   color: white;
   font-size: 11px;
   cursor: pointer;
   background-color: #b73535;
   font-weight: 600;
+  border-radius: 2px;
 }
 
 .subTotalInfo {
@@ -63,4 +71,36 @@
 
 .emptyCartContainer a {
   color: #b73535;
+}
+
+.checkOut {
+  width: 800px;
+  margin: auto;
+  display: flex;
+  /* justify-content: end; */
+  flex-direction: row-reverse;
+  /* border: 1px solid red; */
+}
+.checkOut span button {
+  font-weight: 600;
+  padding: 10px 50px;
+}
+
+.checkout-logOutBtn {
+  width: 800px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.checkout-logOutBtn button {
+  background: #b73535;
+  border: 1px solid #b73535;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: #f2f2f2;
+  font-weight: 600;
+}
+
+.bottomMargin {
+  width: 1000px;
 }

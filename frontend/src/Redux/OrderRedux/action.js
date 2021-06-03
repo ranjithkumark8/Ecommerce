@@ -1,6 +1,12 @@
 import axios from "axios";
 import {
+  CHECKOUT_FAILURE,
+  CHECKOUt_REQUEST,
+  CHECKOUT_SUCCESS,
   DELETE_USERORDER_FAILURE,
+  DELETE_USERORDER_MANY_FAILURE,
+  DELETE_USERORDER_MANY_REQUEST,
+  DELETE_USERORDER_MANY_SUCCESS,
   DELETE_USERORDER_REQUEST,
   DELETE_USERORDER_SUCCESS,
   GET_USERORDER_FAILURE,
@@ -70,6 +76,42 @@ export const deleteOrderFailure = () => {
   };
 };
 
+export const checkOutRequest = () => {
+  return {
+    type: CHECKOUt_REQUEST,
+  };
+};
+
+export const checkOutSuccess = (payload) => {
+  return {
+    type: CHECKOUT_SUCCESS,
+    payload,
+  };
+};
+
+export const checkOutFailure = (err) => {
+  return {
+    type: CHECKOUT_FAILURE,
+  };
+};
+
+export const deleteManyOrderRequest = () => {
+  return {
+    type: DELETE_USERORDER_MANY_REQUEST,
+  };
+};
+
+export const deleteManyOrderSuccess = () => {
+  return {
+    type: DELETE_USERORDER_MANY_SUCCESS,
+  };
+};
+
+export const deleteManyOrderFailure = () => {
+  return {
+    type: DELETE_USERORDER_MANY_FAILURE,
+  };
+};
 export const postOrders = (body) => (dispatch) => {
   dispatch(postOrderRequest());
   let token = body.token;
@@ -110,4 +152,50 @@ export const deleteOrder = (token, id) => (dispatch) => {
       dispatch(getUserOrders(token));
     })
     .catch((err) => dispatch(deleteOrderFailure()));
+};
+
+// function deleteUserOrders(token) {
+//   axios.delete("http://localhost:2345/order/userOrders", {
+//     headers:{Authorization: `Bearer ${token}`}
+//   }).then((res) => )
+// }
+
+export const checkOutOrderGet = (token) => (dispatch) => {
+  // console.log(token, "request made");
+  dispatch(checkOutRequest());
+  return axios
+    .get("https://ecart763.herokuapp.com/checkOut", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((res) => {
+      // console.log(res.data, "previous order");
+      dispatch(checkOutSuccess(res.data));
+    })
+    .catch((err) => dispatch(checkOutFailure(err)));
+};
+
+export const checkoutOrder = (token, body) => (dispatch) => {
+  return axios
+    .post("https://ecart763.herokuapp.com/checkOut", body, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then((res) => {
+      dispatch(checkOutOrderGet(token));
+    })
+    .catch((err) => dispatch(checkOutFailure(err)));
+};
+
+export const deleteManyOrder = (token, body) => (dispatch) => {
+  // console.log(token, "delete many token");
+  dispatch(deleteManyOrderRequest());
+  return axios
+    .delete("https://ecart763.herokuapp.com/order/userOrders/delete", {
+      headers: { Authorization: `Bearer ${token}` },
+      data: { body },
+    })
+    .then((res) => {
+      dispatch(deleteManyOrderSuccess());
+      dispatch(getUserOrders(token));
+    })
+    .catch((err) => dispatch(deleteManyOrderFailure()));
 };

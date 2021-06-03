@@ -14,14 +14,14 @@ export const SignUp = () => {
         history.push("/")
     }
     const {
-        values,
+        // values,
         handleSubmit,
-        submitCount,
+        // submitCount,
         getFieldProps,
         setValues,
         touched,
         errors,
-        setFieldValue
+        // setFieldValue
     } = useFormik({
         initialValues: {
             first_name: "",

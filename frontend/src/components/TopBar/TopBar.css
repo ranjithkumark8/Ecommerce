@@ -10,15 +10,28 @@
   border-bottom: 1px solid #ededede1;
   cursor: pointer;
 }
-.textColor {
+.textColor,
+.textUser {
   color: #ededed;
   text-decoration: none;
   text-transform: capitalize;
 }
-
+.RegisterUserPointer {
+  cursor: pointer;
+}
 .cart_Container img {
   width: 15px;
   height: auto;
   display: inline-block;
   margin: 0 5px -2px 0;
+}
+
+.RegisterUser button {
+  background: #b73535;
+  border: 1px solid #b73535;
+  padding: 5px;
+  cursor: pointer;
+  color: #f2f2f2;
+  font-weight: 400;
+  margin-left: 5px;
 }

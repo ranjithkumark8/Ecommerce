@@ -1,5 +1,11 @@
 import {
+  CHECKOUT_FAILURE,
+  CHECKOUt_REQUEST,
+  CHECKOUT_SUCCESS,
   DELETE_USERORDER_FAILURE,
+  DELETE_USERORDER_MANY_FAILURE,
+  DELETE_USERORDER_MANY_REQUEST,
+  DELETE_USERORDER_MANY_SUCCESS,
   DELETE_USERORDER_REQUEST,
   DELETE_USERORDER_SUCCESS,
   GET_USERORDER_FAILURE,
@@ -15,6 +21,7 @@ const initialData = {
   isError: false,
   ordersData: [],
   orderedProductId: [],
+  previousOrders: [],
 };
 
 export const orderReducer = (state = initialData, { type, payload }) => {
@@ -51,8 +58,8 @@ export const orderReducer = (state = initialData, { type, payload }) => {
       return {
         ...state,
         isLoading: false,
-        ordersData: payload.data,
-        orderedProductId: payload.data?.map((item) => item.productId._id),
+        ordersData: [...payload.data],
+        orderedProductId: [...payload.data?.map((item) => item.productId._id)],
       };
     }
     case GET_USERORDER_FAILURE: {
@@ -79,6 +86,40 @@ export const orderReducer = (state = initialData, { type, payload }) => {
     case DELETE_USERORDER_FAILURE: {
       return {
         ...state,
+        isError: true,
+      };
+    }
+    case DELETE_USERORDER_MANY_REQUEST: {
+      return {
+        ...state,
+      };
+    }
+    case DELETE_USERORDER_MANY_SUCCESS: {
+      return {
+        ...state,
+      };
+    }
+    case DELETE_USERORDER_MANY_FAILURE: {
+      return {
+        ...state,
+      };
+    }
+    case CHECKOUt_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+      };
+    }
+    case CHECKOUT_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        previousOrders: [...payload.data],
+      };
+    }
+    case CHECKOUT_FAILURE: {
+      return {
+        isLoading: false,
         isError: true,
       };
     }

@@ -1,4 +1,7 @@
 import {
+  GET_USER_DETAILS_FAILURE,
+  GET_USER_DETAILS_REQUEST,
+  GET_USER_DETAILS_SUCCESS,
   LOGOUT,
   POST_SIGNUP_DETAILS_FAILURE,
   POST_SIGNUP_DETAILS_REQUEST,
@@ -84,6 +87,27 @@ export const authReducer = (state = initialData, { type, payload }) => {
         ...state,
         isError: true,
         isLoading: false,
+      };
+    }
+    case GET_USER_DETAILS_REQUEST: {
+      return {
+        ...state,
+        isLoading: true,
+        isError: false,
+      };
+    }
+    case GET_USER_DETAILS_SUCCESS: {
+      return {
+        ...state,
+        userDetails: { ...payload },
+        isLoading: false,
+      };
+    }
+    case GET_USER_DETAILS_FAILURE: {
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
       };
     }
     case LOGOUT: {

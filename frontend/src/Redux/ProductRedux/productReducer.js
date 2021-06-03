@@ -34,12 +34,14 @@ export const productReducer = (state = initialData, { type, payload }) => {
       return {
         ...state,
         mensData: payload,
+        isLoading: false,
       };
     }
     case MEN_DATA_FAILURE: {
       return {
         ...state,
         isError: true,
+        isLoading: false,
       };
     }
     case PRODUCT_REQUEST: {
@@ -101,6 +103,7 @@ export const productReducer = (state = initialData, { type, payload }) => {
       return {
         ...state,
         isError: true,
+        isLoading: false,
       };
     }
     default:

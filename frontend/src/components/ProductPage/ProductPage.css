@@ -62,3 +62,10 @@
 .filtersContainer > div > span {
   cursor: pointer;
 }
+
+.ProductContainerImg {
+  /* border: 2px solid red; */
+  height: 300px;
+  border-radius: 2px;
+  overflow: hidden;
+}

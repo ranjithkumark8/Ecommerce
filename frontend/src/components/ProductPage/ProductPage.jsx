@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom'
 import { categoryData, filterData, MenData, productData } from '../../Redux/ProductRedux/action'
 import "./ProductPage.css"
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  margin: 50px auto;`;
 
 export const ProductPage = () => {
     const dispatch = useDispatch()
@@ -13,6 +19,7 @@ export const ProductPage = () => {
     const filtersData = useSelector((state) => state.productReducer.categoryData)
     const productsData = useSelector((state) => state.productReducer.mensData)
     const filteredData = useSelector((state) => state.productReducer.filteredData)
+    let isLoading = useSelector((state) => state.productReducer.isLoading)
     const [currentProductId, setCurrentProductId] = React.useState(" ")
     const [filtersShow, setFiltersShow] = React.useState(false)
     // const [data, setData] = React.useState([])
@@ -43,7 +50,7 @@ export const ProductPage = () => {
         }
         dispatch(MenData(category))
         dispatch(categoryData())
-    }, [categoryPath])
+    }, [category, dispatch])
 
     const handleClick = (id) => {
         dispatch(productData(id))
@@ -64,6 +71,7 @@ export const ProductPage = () => {
     }
     return (
         <>
+
             {filtersShow &&
 
                 <div className="filtersContainer">
@@ -73,22 +81,24 @@ export const ProductPage = () => {
                         {filtersData?.map((filter) => <span onClick={() => handleFilter(filter._id)} key={filter._id}> {filter.tagName} |</span>)}
                     </div>
                 </div>}
-            <div className="ProductContainer">
-                {data.length > 0 ? data?.map((product) => (
-                    <div key={product._id} className="singleProduct" onClick={() => { handleClick(product._id) }}>
-                        <div className="ProductContainerImg">
-                            <img src={product.image} alt={product.name} width="300px" />
-                        </div>
-                        <div className="productInfo">
-                            <div className="productInfoHeader">
-                                <h6>{product.category.category} | {product.tags.tagName}</h6>
-                                <h3>{product.productName}</h3>
+            {isLoading ? <ClipLoader color="#B73535" loading={isLoading} css={override} size={150} /> : (
+                <div className="ProductContainer">
+                    {data.length > 0 ? data?.map((product) => (
+                        <div key={product._id} className="singleProduct" onClick={() => { handleClick(product._id) }}>
+                            <div className="ProductContainerImg">
+                                <img src={product.image} alt={product.name} width="300px" />
                             </div>
-                            {product.returnSale ? <div className="productInfoPrice">₹{product.discountPrice}.00 <s>₹{product.price}.00</s></div > : <div className="productInfoPrice">₹ {product.price}.00</div>}
+                            <div className="productInfo">
+                                <div className="productInfoHeader">
+                                    <h6>{product.category.category} | {product.tags.tagName}</h6>
+                                    <h3>{product.productName}</h3>
+                                </div>
+                                {product.returnSale ? <div className="productInfoPrice">₹{product.discountPrice}.00 <s>₹{product.price}.00</s></div > : <div className="productInfoPrice">₹ {product.price}.00</div>}
+                            </div>
                         </div>
-                    </div>
-                )) : <div> No available Products</div>}
-            </div>
+                    )) : <div> No available Products</div>}
+                </div>
+            )}
         </>
     )
 }

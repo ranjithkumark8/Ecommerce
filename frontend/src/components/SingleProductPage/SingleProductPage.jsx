@@ -5,23 +5,29 @@ import { useParams } from 'react-router-dom'
 import { productData } from '../../Redux/ProductRedux/action'
 import "./SingleProductPage.css"
 import { postOrders } from '../../Redux/OrderRedux/action'
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/react";
+
+const override = css`
+  display: block;
+  margin: 50px auto;`;
 
 export const SingleProductPage = () => {
     // const [productsData, setProductData] = React.useState({})
     const { id } = useParams()
     const dispatch = useDispatch()
     let data = useSelector((state) => state.productReducer.productData)
-
+    let isLoading = useSelector((state) => state.productReducer.isLoading)
     React.useEffect(() => {
         dispatch(productData(id))
-    }, [])
+    }, [id, dispatch])
 
     const [qty, setQty] = React.useState(1)
     const handleQty = (e) => {
         setQty(e.target.value)
     }
     let orderedProductId = useSelector((state) => state.orderReducer.orderedProductId)
-    // console.log(orderedProductId.indexOf(id))
+    // console.log(orderedProductId.indexOf(id), orderedProductId)
 
     const token = useSelector((state) => state.authReducer.token)
     // console.log(token)
@@ -53,7 +59,8 @@ export const SingleProductPage = () => {
 
     return (
         // isLoading ? <div>Loading</div> :
-        data ?
+        isLoading ? <ClipLoader color="#B73535" loading={isLoading} css={override} size={150} /> : (
+            data &&
             <div className="singleContainer">
                 <div className="productImage">
                     <img src={data.image} alt={data.name} />
@@ -64,8 +71,8 @@ export const SingleProductPage = () => {
                     <div className="singleProdDesc">{data.description}</div>
                     <div className="singleProdSize">
                         <p>Select Size</p>
-                        <select defaultValue="S" name="productSize" id="productSize" onChange={handleSizeChange}>
-                            <option value="S">S</option>
+                        <select name="productSize" id="productSize" onChange={handleSizeChange}>
+                            <option selected value="S">S</option>
                             <option value="M">M</option>
                             <option value="L">L</option>
                         </select>
@@ -78,6 +85,8 @@ export const SingleProductPage = () => {
                     </div>
                     {orderedProductId.indexOf(id) !== -1 ? <button className="cartButton cartAddedButton" disabled>Added</button> : <button className="cartButton" onClick={handleCartClick}>Add to Cart</button>}
                 </div>
-            </div > : null
+            </div >
+        )
+
     )
 }
